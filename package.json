@@ -4,7 +4,10 @@
   "description": "Projeto do https://curso.dev de desenvolvimento de um site do começo ao fim, clone do site https://www.tabnews.com.br",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run services:up && next dev",
+    "services:up": "docker compose -f infra/compose.yaml up -d",
+    "services:stop": "docker compose -f infra/compose.yaml stop",
+    "services:down": "docker compose -f infra/compose.yaml down",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "test": "jest",
